@@ -7,6 +7,7 @@ bot = CQHttp(api_root='http://127.0.0.1:5700/')
 
 @bot.on_message()
 def handle_msg(context):
+    print("msg"+context['message'])
     bot.send(context, '你好呀，下面一条是你刚刚发的：')
     return {'reply': context['message'], 'at_sender': False}
 
@@ -21,4 +22,4 @@ def handle_request(context):
     return {'approve': True}  # 同意所有加群、加好友请求
 
 
-bot.run(host='127.0.0.1', port=8080)
+bot.run(host='172.17.0.1', port=8081)

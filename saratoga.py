@@ -1,15 +1,25 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
 from cqhttp import CQHttp
+import multi-service-python-api
 
 bot = CQHttp(api_root='http://127.0.0.1:5700/')
 
+state = 0
+# 0 空闲
+# 1 搜索图片
+command = ["搜索图片"]
+function = []
 
-@bot.on_message()
+
+@bot.on_message('friend')
 def handle_msg(context):
-    print("msg"+context['message'])
-    bot.send(context, '你好呀，下面一条是你刚刚发的：')
-    return {'reply': context['message'], 'at_sender': False}
+    print("msg"+str(context))
+    if("image" in context['message']):
+        msg = context['message']
+        start = msg.index("file=") + 5
+        imgsrc = msg[]
+    return
 
 
 @bot.on_notice('group_increase')  # 如果插件版本是 3.x，这里需要使用 @bot.on_event

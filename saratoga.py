@@ -1,7 +1,11 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
 from cqhttp import CQHttp
+<<<<<<< HEAD
 import multi-service-python-api
+=======
+import multiServicePythonapi
+>>>>>>> 2dc9d0e7b8599253783a63e096d9d236392249e7
 
 bot = CQHttp(api_root='http://127.0.0.1:5700/')
 
@@ -18,7 +22,13 @@ def handle_msg(context):
     if("image" in context['message']):
         msg = context['message']
         start = msg.index("file=") + 5
+<<<<<<< HEAD
         imgsrc = msg[]
+=======
+        end = len(msg)
+        imgsrc = msg[start:end]
+        print(imgsrc)
+>>>>>>> 2dc9d0e7b8599253783a63e096d9d236392249e7
     return
 
 

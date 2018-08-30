@@ -9,7 +9,7 @@ import MySQLdb
 
 bot = CQHttp(api_root = "http://localhost:5700")
 
-proxies = {"http": "http://localhost:8228"}
+proxies = {"http": "socks5://localhost:1080"}
 
 state = None
 
@@ -385,6 +385,10 @@ def setVariable(context, cursor, variable, isIndividual, value):
 
 @bot.on_message("group")
 def handle_group_message(context):
+    ##########################################    
+    if(context["group_id"] != 491922235):
+        return
+    ##########################################
     msg = (context['message'])
     
     state = getVariable(context, cur, "state", GROUP, "idle")
@@ -482,4 +486,4 @@ def handle_group_message(context):
             setVariable(context, cur, updateVarName, isIndividual, value)
 
 
-bot.run(host = '172.17.0.1', port = 5800)
+bot.run(host = '172.17.0.1', port = 8081)
